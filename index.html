@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+  <div id="chessboard"></div>
+   <script>
+        var chessmansBlack = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟'];
+        var chessmansWhite = ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙', '♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'];
+        var chessboard = document.getElementById("chessboard");
+        var indexAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+        var content = '';
+        for (var i = 0; i < 8; i++) {
+            for (var j = 0; j < 8; j++) {
+
+                if (i % 2 == 0) {
+                    if (j % 2 == 0) content += '<div class="block-white" onclick="Click(this.id)" id="' + indexAlphabet[i] + j + '">';
+                    else content += '<div class="block-black" onclick="Click(this.id)" id="' + indexAlphabet[i] + j + '">';
+                } else {
+                    if (j % 2 == 0) content += '<div class="block-black" onclick="Click(this.id)" id="' + indexAlphabet[i] + j + '">';
+                    else content += '<div class="block-white" onclick="Click(this.id)" id="' + indexAlphabet[i] + j + '">';
+                }
+                if (i < 2) {
+                    content = content + chessmansBlack[(i * 8) + j] + '</div>';
+                } else if (i >= 6) {
+                    content = content + chessmansWhite[(i - 6) * 8 + j] + '</div>';
+                } else {
+                    content += '</div>';
+                }
+            }
+
+        }
+        chessboard.innerHTML = content;
+    
+      </script>  
+</body>
+</html>

@@ -1,0 +1,6 @@
+Vua: King
+Hậu: Queen
+Tượng: Bishop
+Tốt: Pawn
+Xe: Castle
+Ngựa: Knight
