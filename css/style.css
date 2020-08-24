@@ -42,13 +42,13 @@ body {
 }
 
 .block-black:hover{
-  background: #318fb5;
-  color: #f7d6bf;
+  background: #056676;
+  color: #204051;
   font-size: 70px
 }
 
 .block-white:hover{
-  background: #318fb5;
-  color: #f7d6bf;
+  background: #056676;
+  color: #204051;
   font-size: 70px
 }
