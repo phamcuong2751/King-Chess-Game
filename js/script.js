@@ -1,19 +1,24 @@
 // var imported = document.createElement('script');
 // imported.src = './js/LoadBroad/declareVariable.js';
-// document.head.appendChild(imported);
-const kingWhite = '<p>♕</p>'
-const queenWhite = '<p>♔</p>'
-const bishopWhite = '<p>♗</p>'
-const castleWhite = '<p>♖</p>'
-const knightWhite = '<p>♘</p>'
-const pawnWhite = '<p>♙</p>'
+// document.head.appendChild(imported)
+var _kingWhite = {
+    icon: '♕',
+    ID: 'king', 
+    index: function index(i, j) { return i.toString() + j.toString() }
+}
+const kingWhite = '♕'
+const queenWhite = '♔'
+const bishopWhite = '♗'
+const castleWhite = '♖'
+const knightWhite = '♘'
+const pawnWhite = '♙'
 
-const kingBlack = '<p>♛</p>'
-const queenBlack = '<p>♚</p>'
-const bishopBlack = '<p>♝</p>'
-const castleBlack = '<p>♜</p>'
-const knightBlack = '<p>♞</p>'
-const pawnBlack = '<p>♟</p>'
+const kingBlack = '♛'
+const queenBlack = '♚'
+const bishopBlack = '♝'
+const castleBlack = '♜'
+const knightBlack = '♞'
+const pawnBlack = '♟'
 
 const posTop = '0'
 const posBot = '7'
@@ -26,17 +31,17 @@ var content = '';
 for (var i = 0; i < 8; i++) {
     for (var j = 0; j < 8; j++) {
         if (i % 2 == 0) {
-            if (j % 2 == 0) content += '<div class="block-white" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="inindexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
-            else content += '<div class="block-black" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="inindexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
+            if (j % 2 == 0) content += '<div class="block-white" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="indexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
+            else content += '<div class="block-black" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="indexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
         } else {
-            if (j % 2 == 0) content += '<div class="block-black" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="inindexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
-            else content += '<div class="block-white" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="inindexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
+            if (j % 2 == 0) content += '<div class="block-black" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="indexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
+            else content += '<div class="block-white" onmouseout="mouseOut(this)" onmouseover="hoverEvent(this)" onclick="indexSqare(this)" id="' + i + indexAlphabet[j] + '"></div>';
         }
     }
 }
 chessboard.innerHTML = content;
 
-function inindexSqare(idElement) {
+function indexSqare(idElement) {
     return idElement.id
 }
 
@@ -57,7 +62,7 @@ for (let i = 0; i < 8; i++) {
     else if (i == 1 || i == 6) { placePieces(knightWhite, posBot + indexAlphabet[i]) }
     else if (i == 2 || i == 5) { placePieces(bishopWhite, posBot + indexAlphabet[i]) }
     else {
-        placePieces(kingWhite, posBot + indexAlphabet[4])
+        placePieces(_kingWhite.icon, posBot + indexAlphabet[4])
         placePieces(queenWhite, posBot + indexAlphabet[3])
     }
 }
@@ -78,7 +83,7 @@ for (let i = 0; i < 8; i++) {
 
 //fucntion change color when mouse over a square on broad
 function hoverEvent(index) {
-    // if (indexChessman.id.toString() == inindexSqare(index).toString()) {
+    // if (indexChessman.id.toString() == indexSqare(index).toString()) {
     //     for (let i = 0; i < 8; i++) {
     //         for (let j = 0; j < 8; j++) {
     //             let temp = '';
@@ -92,7 +97,7 @@ function hoverEvent(index) {
 }
 //fucntion change color when mouse out a square on broad
 function mouseOut(index) {
-    // if (indexChessman.id.toString() == inindexSqare(index).toString()) {
+    // if (indexChessman.id.toString() == indexSqare(index).toString()) {
     //     for (let i = 0; i < 8; i++) {
     //         for (let j = 0; j < 8; j++) {
     //             let temp = '';
